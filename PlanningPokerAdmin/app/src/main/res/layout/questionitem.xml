@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+        android:id="@+id/questionitemtext"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:text="TextView"
+        android:textSize="20dp" />
+
+
+        <Button
+        android:id="@+id/aktiv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="AKTIV"
+        android:layout_toEndOf="@id/questionitemtext"
+        android:layout_toRightOf="@id/questionitemtext"/>
+
+        <Button
+            android:id="@+id/inaktiv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="INAKTIV"
+            android:layout_toEndOf="@id/aktiv"
+            android:layout_toRightOf="@id/aktiv"/>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

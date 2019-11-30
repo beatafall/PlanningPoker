@@ -1,5 +1,4 @@
 package com.example.planningpokeradmin.Classes;
-
 public class Question {
     String question;
     String groupKey;

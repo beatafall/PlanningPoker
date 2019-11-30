@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.planningpokeradmin.Classes.Question;
@@ -72,6 +73,7 @@ public class AnExistingGroup extends Fragment {
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     String txt = item.child("groupKey").getValue().toString();
                     String gr = groupCode.getText().toString();
+
                     if (txt.equals(gr)) {
                         String q = item.child("question").getValue().toString();
                         Question q1 = new Question(q);
@@ -88,16 +90,16 @@ public class AnExistingGroup extends Fragment {
                 recyclerView.setAdapter(adapter);
                 recyclerView.setHasFixedSize(true);
 
-                adapter.setOnItemClickListener(new QuestionAdapter.OnItemClickListener() {
+                /*adapter.setOnItemClickListener(new QuestionAdapter.OnItemClickListener() {
                     @Override
                     public void SetInactiv(final int position) {
                         for (DataSnapshot item : dataSnapshot.getChildren()) {
                             String activity = item.child("aktivitas").getValue().toString();
                             Log.i("aaa",activity);
-                        if (activity.equals("Activ")) {
-                            String q = list.get(position).getQuestion();
-                            list.get(position).setAktivitas("Inactiv");
-                        }
+                            if (activity.equals("Activ")) {
+                                String q = list.get(position).getQuestion();
+                                list.get(position).setAktivitas("Inactiv");
+                            }
                         }
                     }
 
@@ -105,9 +107,10 @@ public class AnExistingGroup extends Fragment {
                     public void SetActiv(int position) {
 
                     }
-                });
+                });*/
 
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

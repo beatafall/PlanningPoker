@@ -18,12 +18,12 @@
         android:textSize="20dp" />
 
         <Button
-        android:id="@+id/aktiv"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="AKTIV"
-        android:layout_toEndOf="@id/questionitemtext"
-        android:layout_toRightOf="@id/questionitemtext"/>
+            android:id="@+id/aktiv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="AKTIV"
+            android:layout_toEndOf="@id/questionitemtext"
+            android:layout_toRightOf="@id/questionitemtext"/>
 
         <Button
             android:id="@+id/inaktiv"
@@ -32,7 +32,6 @@
             android:text="INAKTIV"
             android:layout_toEndOf="@id/aktiv"
             android:layout_toRightOf="@id/aktiv"/>
-
 
 
     </RelativeLayout>

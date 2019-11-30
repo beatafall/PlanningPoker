@@ -1,19 +1,10 @@
-package com.example.planningpokeruser;
+package com.example.planningpokeruser.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -21,19 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.planningpokeruser.Adapters.MyAdapter;
+import com.example.planningpokeruser.Adapters.MyRecyclerViewAdapter;
+import com.example.planningpokeruser.Classes.Question;
+import com.example.planningpokeruser.Database.FirebaseDatabaseManager;
+import com.example.planningpokeruser.Fragments.Answers;
+import com.example.planningpokeruser.R;
 
 import java.util.ArrayList;
-import static com.example.planningpokeruser.FirebaseDatabaseManager.Instance.questionsReference;
 
 public class Questions extends Fragment {
     MyRecyclerViewAdapter adapter;
@@ -41,7 +30,7 @@ public class Questions extends Fragment {
     ArrayList<Question> questionlist;
     RecyclerView recyclerView;
     TextView selected;
-    Button vote,back,viewAnswers;
+    Button vote,viewAnswers;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +43,6 @@ public class Questions extends Fragment {
         groupcode=v.findViewById(R.id.tv_groupcode);
         selected = v.findViewById(R.id.tv_selectednumber);
         vote=v.findViewById(R.id.button_vote);
-        back=v.findViewById(R.id.back);
         viewAnswers=v.findViewById(R.id.viewanswers);
 
         String userNameString = getArguments().getString("UserName");
@@ -96,16 +84,8 @@ public class Questions extends Fragment {
                 Answers answer=new Answers();
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.fragment_container, answer);
+                fr.addToBackStack(null);
                 fr.commit();
-            }
-        });
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fm= getActivity().getSupportFragmentManager();
-                fm.popBackStack();
-
             }
         });
 

@@ -1,7 +1,5 @@
-package com.example.planningpokeradmin;
+package com.example.planningpokeradmin.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.planningpokeradmin.Adapters.AnswerAdapter;
+import com.example.planningpokeradmin.Classes.Answer;
+import com.example.planningpokeradmin.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

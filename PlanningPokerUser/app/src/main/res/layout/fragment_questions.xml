@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Questions">
+    tools:context=".Fragments.Questions">
 
 
     <TextView
@@ -106,23 +106,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_votername" />
 
     <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Back to questions"
-        android:textColor="#3F51B5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/button_vote"
-        app:layout_constraintTop_toBottomOf="@+id/tv_selectednumber" />
-
-    <Button
         android:id="@+id/viewanswers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="8dp"
         android:text="View answers"
         android:textColor="#3F51B5"
         app:layout_constraintStart_toStartOf="parent"

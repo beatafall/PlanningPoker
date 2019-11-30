@@ -1,15 +1,18 @@
-package com.example.planningpokeradmin;
+package com.example.planningpokeruser.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.planningpokeruser.Classes.Question;
+import com.example.planningpokeruser.R;
+
 import java.util.ArrayList;
+
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder>{
     ArrayList<Question> questionlist;
@@ -35,7 +38,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.textView.setText(questionlist.get(position).getQuestion());
     }
 
@@ -46,14 +49,10 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
-        Button activQuestion,inatctivQuestion;
-        public ViewHolder(@NonNull View itemView,final MyAdapter.OnItemClickListener listener) {
+        public ViewHolder(@NonNull View itemView,final MyAdapter.OnItemClickListener listener ) {
             super(itemView);
             textView = itemView.findViewById(R.id.questionitemtext);
-            activQuestion=itemView.findViewById(R.id.aktiv);
-            inatctivQuestion=itemView.findViewById(R.id.inaktiv);
-
-            inatctivQuestion.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (listener != null){

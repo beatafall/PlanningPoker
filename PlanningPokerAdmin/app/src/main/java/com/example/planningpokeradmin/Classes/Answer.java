@@ -1,4 +1,4 @@
-package com.example.planningpokeruser;
+package com.example.planningpokeradmin.Classes;
 
 public class Answer {
     String userName;

@@ -17,7 +17,6 @@
         android:text="TextView"
         android:textSize="20dp" />
 
-
         <Button
         android:id="@+id/aktiv"
         android:layout_width="100dp"

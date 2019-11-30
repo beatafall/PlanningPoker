@@ -1,11 +1,8 @@
-package com.example.planningpokeradmin;
+package com.example.planningpokeradmin.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -13,14 +10,16 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
+import com.example.planningpokeradmin.Classes.Question;
+import com.example.planningpokeradmin.Adapters.QuestionAdapter;
+import com.example.planningpokeradmin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,6 +58,7 @@ public class AnExistingGroup extends Fragment {
                 Bundle args=new Bundle();
                 args.putString("TheGroupCode",myStr);
                 gr.setArguments(args);
+                fr.addToBackStack(null);
                 fr.commit();
             }
         });
@@ -68,7 +68,7 @@ public class AnExistingGroup extends Fragment {
 
         reff.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     String txt = item.child("groupKey").getValue().toString();
                     String gr = groupCode.getText().toString();
@@ -87,6 +87,26 @@ public class AnExistingGroup extends Fragment {
                 adapter = new QuestionAdapter(list);
                 recyclerView.setAdapter(adapter);
                 recyclerView.setHasFixedSize(true);
+
+                adapter.setOnItemClickListener(new QuestionAdapter.OnItemClickListener() {
+                    @Override
+                    public void SetInactiv(final int position) {
+                        for (DataSnapshot item : dataSnapshot.getChildren()) {
+                            String activity = item.child("aktivitas").getValue().toString();
+                            Log.i("aaa",activity);
+                        if (activity.equals("Activ")) {
+                            String q = list.get(position).getQuestion();
+                            list.get(position).setAktivitas("Inactiv");
+                        }
+                        }
+                    }
+
+                    @Override
+                    public void SetActiv(int position) {
+
+                    }
+                });
+
             }
 
             @Override

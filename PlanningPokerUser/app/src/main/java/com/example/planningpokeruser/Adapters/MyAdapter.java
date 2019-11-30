@@ -1,4 +1,4 @@
-package com.example.planningpokeruser;
+package com.example.planningpokeruser.Adapters;
 
 
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.planningpokeruser.Classes.Group;
+import com.example.planningpokeruser.R;
 
 import java.util.ArrayList;
 

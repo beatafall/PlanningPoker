@@ -1,7 +1,5 @@
-package com.example.planningpokeruser;
+package com.example.planningpokeruser.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.planningpokeruser.R;
 
 public class LoginUser extends Fragment {
     EditText userName;

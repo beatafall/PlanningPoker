@@ -1,10 +1,9 @@
-package com.example.planningpokeruser;
-
+package com.example.planningpokeradmin.Classes;
 
 public class Question {
     String question;
     String groupKey;
-    String aktivitas;
+    String activity;
 
     public  Question(){
     }
@@ -12,18 +11,18 @@ public class Question {
     public Question(String question){
         this.question=question;
     }
-    public Question(String groupKey,String question,String aktivitas) {
+    public Question(String groupKey,String question,String activity) {
         this.question = question;
         this.groupKey=groupKey;
-        this.aktivitas=aktivitas;
+        this.activity=activity;
     }
 
     public String getAktivitas() {
-        return aktivitas;
+        return activity;
     }
 
-    public void setAktivitas(String aktivitas) {
-        this.aktivitas = aktivitas;
+    public void setAktivitas(String activity) {
+        this.activity = activity;
     }
 
     public String getQuestion() {

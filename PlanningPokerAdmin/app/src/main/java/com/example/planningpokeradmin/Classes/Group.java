@@ -1,4 +1,4 @@
-package com.example.planningpokeradmin;
+package com.example.planningpokeradmin.Classes;
 
 public class Group {
     String groupCode;

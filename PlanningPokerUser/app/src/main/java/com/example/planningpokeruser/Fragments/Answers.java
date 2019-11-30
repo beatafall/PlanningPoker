@@ -1,7 +1,5 @@
-package com.example.planningpokeruser;
+package com.example.planningpokeruser.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,8 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import com.example.planningpokeruser.Adapters.AnswerAdapter;
+import com.example.planningpokeruser.Classes.Answer;
+import com.example.planningpokeruser.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,6 +45,7 @@ public class Answers extends Fragment {
         list=new ArrayList<>();
         adapter=new AnswerAdapter(list);
         getDataFirebase();
+
         return v;
     }
 

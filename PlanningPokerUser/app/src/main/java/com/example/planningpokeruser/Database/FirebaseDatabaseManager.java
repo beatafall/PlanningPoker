@@ -1,9 +1,9 @@
-package com.example.planningpokeruser;
+package com.example.planningpokeruser.Database;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
-import com.google.firebase.database.ChildEventListener;
+import com.example.planningpokeruser.Classes.Answer;
+import com.example.planningpokeruser.Classes.Question;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

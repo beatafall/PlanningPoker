@@ -1,55 +1,56 @@
-package com.example.planningpokeruser;
+package com.example.planningpokeradmin.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.planningpokeradmin.Classes.Group;
+import com.example.planningpokeradmin.R;
+
 import java.util.ArrayList;
 
-
-public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder>{
-    ArrayList<Question> questionlist;
-    private MyAdapter.OnItemClickListener mListener;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
+    ArrayList<Group> grouplist;
+    private OnItemClickListener mListener;
 
     public interface  OnItemClickListener{
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(MyAdapter.OnItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener){
         mListener=listener;
     }
 
-    public QuestionAdapter(ArrayList<Question> questionlist){
-        this.questionlist=questionlist;
+    public MyAdapter(ArrayList<Group> s){
+        this.grouplist=s;
     }
 
     @NonNull
     @Override
-    public QuestionAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.questionitem, parent, false);
+    public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.groupitem, parent, false);
         return new ViewHolder(v,mListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.textView.setText(questionlist.get(position).getQuestion());
+    public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
+        holder.textView.setText((grouplist.get(position).getGroupCode()));
     }
 
     @Override
     public int getItemCount() {
-        return questionlist.size();
+        return grouplist.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
-        public ViewHolder(@NonNull View itemView,final MyAdapter.OnItemClickListener listener ) {
+        public ViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
-            textView = itemView.findViewById(R.id.questionitemtext);
+            textView = itemView.findViewById(R.id.groupcodeitem);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -61,9 +62,6 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                     }
                 }
             });
-
         }
     }
-
-
 }

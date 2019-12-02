@@ -29,6 +29,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/groupcode" />
 
+        <Button
+            android:id="@+id/btnanswers"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:text="View answers!"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnnewquestion" />
+
         <TextView
             android:id="@+id/existingquestions"
             android:layout_width="wrap_content"
@@ -39,13 +49,13 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnnewquestion" />
+            app:layout_constraintTop_toBottomOf="@+id/btnanswers" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_questions"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="190dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

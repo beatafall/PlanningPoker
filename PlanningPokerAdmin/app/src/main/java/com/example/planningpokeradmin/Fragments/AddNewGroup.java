@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class AddNewGroup extends Fragment {
     EditText groupCode;
-    Button createGroup, viewanswer;
+    Button createGroup;
     DatabaseReference reff;
     Group group;
     RecyclerView recyclerView;
@@ -52,7 +52,6 @@ public class AddNewGroup extends Fragment {
 
         groupCode=v.findViewById(R.id.groupcode);
         createGroup=v.findViewById(R.id.btnnewgroup);
-        viewanswer=v.findViewById(R.id.btnanswers);
 
         createGroup.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -86,16 +85,6 @@ public class AddNewGroup extends Fragment {
                 Bundle args=new Bundle();
                 args.putString("GroupCode",saveGroupCode);
                 gr.setArguments(args);
-                fr.commit();
-            }
-        });
-        viewanswer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AnswersFragment a= new AnswersFragment();
-                FragmentTransaction fr= getFragmentManager().beginTransaction();
-                fr.replace(R.id.fragment_container,a);
-                fr.addToBackStack(null);
                 fr.commit();
             }
         });

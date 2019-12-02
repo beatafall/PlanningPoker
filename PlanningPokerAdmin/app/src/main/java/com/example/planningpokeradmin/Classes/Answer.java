@@ -9,6 +9,12 @@ public class Answer {
     public Answer(){
     }
 
+    public Answer(String userName, String question, String answer) {
+        this.userName = userName;
+        this.question = question;
+        this.answer = answer;
+    }
+
     public Answer(String userName, String question, String answer, String groupCode) {
         this.userName = userName;
         this.question = question;

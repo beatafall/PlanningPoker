@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AnExistingGroup extends Fragment {
-    Button newquestion, viewanswers;
+    Button newquestion, viewanswer;
     TextView groupCode;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -43,7 +43,7 @@ public class AnExistingGroup extends Fragment {
         View v;
         v = inflater.inflate(R.layout.fragment_an_existing_group, container, false);
         newquestion=v.findViewById(R.id.btnnewquestion);
-        viewanswers=v.findViewById(R.id.btnanswers);
+        viewanswer=v.findViewById(R.id.btnanswers);
         groupCode=v.findViewById(R.id.groupcode);
 
         String myStr=getArguments().getString("GroupCode");
@@ -53,6 +53,21 @@ public class AnExistingGroup extends Fragment {
             @Override
             public void onClick(View v) {
                 AddNewQuestion gr=new AddNewQuestion();
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.fragment_container, gr);
+                String myStr=getArguments().getString("GroupCode");
+                Bundle args=new Bundle();
+                args.putString("TheGroupCode",myStr);
+                gr.setArguments(args);
+                fr.addToBackStack(null);
+                fr.commit();
+            }
+        });
+
+        viewanswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AnswersFragment gr=new AnswersFragment();
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.fragment_container, gr);
                 String myStr=getArguments().getString("GroupCode");

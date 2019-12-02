@@ -30,7 +30,7 @@ public class Questions extends Fragment {
     ArrayList<Question> questionlist;
     RecyclerView recyclerView;
     TextView selected;
-    Button vote,viewAnswers;
+    Button vote;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,7 +43,6 @@ public class Questions extends Fragment {
         groupcode=v.findViewById(R.id.tv_groupcode);
         selected = v.findViewById(R.id.tv_selectednumber);
         vote=v.findViewById(R.id.button_vote);
-        viewAnswers=v.findViewById(R.id.viewanswers);
 
         String userNameString = getArguments().getString("UserName");
         userName.setText(userNameString);
@@ -75,17 +74,6 @@ public class Questions extends Fragment {
             @Override
             public void onClick(View v) {
                 AddtoDataBase();
-            }
-        });
-
-        viewAnswers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Answers answer=new Answers();
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.fragment_container, answer);
-                fr.addToBackStack(null);
-                fr.commit();
             }
         });
 

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.planningpokeruser.Classes.Question;
@@ -33,6 +34,7 @@ public class GroupQuestions extends Fragment {
     TextView grcode, username;
     QuestionAdapter adapter;
     RecyclerView recyclerView;
+    Button answers;
     DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Questions");
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,12 +43,28 @@ public class GroupQuestions extends Fragment {
         v = inflater.inflate(R.layout.fragment_group_questions, container, false);
         grcode=v.findViewById(R.id.grcode);
         username=v.findViewById(R.id.username);
+        answers=v.findViewById(R.id.viewanswers);
 
         String myStr=getArguments().getString("GroupCode");
         grcode.setText(myStr);
 
         String myStr2=getArguments().getString("UserName");
         username.setText(myStr2);
+
+        answers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Answers gr=new Answers();
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.fragment_container, gr);
+                String myStr=getArguments().getString("GroupCode");
+                Bundle args=new Bundle();
+                args.putString("TheGroupCode",myStr);
+                gr.setArguments(args);
+                fr.addToBackStack(null);
+                fr.commit();
+            }
+        });
 
         recyclerView=v.findViewById(R.id.recyclerview_questions);
         list = new ArrayList<>();

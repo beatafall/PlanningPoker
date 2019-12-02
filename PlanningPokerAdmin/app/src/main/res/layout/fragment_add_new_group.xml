@@ -20,7 +20,7 @@
 
     <Button
         android:id="@+id/btnnewgroup"
-        android:layout_width="94dp"
+        android:layout_width="wrap_content"
         android:layout_height="38dp"
         android:layout_marginTop="20dp"
         android:text="Create new group"
@@ -28,33 +28,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groupcode" />
 
-    <Button
-        android:id="@+id/btnanswers"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="10dp"
-        android:text="View answers!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnnewgroup" />
-
-    <TextView
-        android:id="@+id/existinggroups"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="Existing groups"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnanswers" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_groups"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
